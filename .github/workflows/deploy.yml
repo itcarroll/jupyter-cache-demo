@@ -27,8 +27,8 @@ jobs:
         with:
           python-version: '3.13'
           cache: 'pip'
-      - run: pip install jupyter-server jupyter-book 
-      - name: Build
+          pip-install: 'jupyter-server jupyter-book'
+      - name: Run jupyter-book
         run: jupyter-book build --execute --html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
