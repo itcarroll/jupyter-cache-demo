@@ -17,16 +17,17 @@ concurrency:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     env:
       BASE_URL: /${{ github.event.repository.name }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v6
         with:
-          node-version: 18.x
-      - name: Install Jupyter Book
-        run: npm install -g jupyter-book
+          python-version: '3.13'
+            cache: 'pip'
+      - run: pip install jupyter-server jupyter-book 
       - name: Build
         run: jupyter-book build --execute --html
       - name: Upload artifact
@@ -34,6 +35,7 @@ jobs:
         with:
           path: './_build/html'
   deploy:
+    name: Deploy
     needs: build
     permissions:
       pages: write
