@@ -31,7 +31,7 @@ jobs:
       - uses: actions/cache@v5
         with:
           key: execute-cache
-          path: './_build/execute'
+          path: './_build/execute ./_build/templates'
       - name: Run jupyter-book
         run: jupyter-book build --execute --html
       - name: Upload artifact
