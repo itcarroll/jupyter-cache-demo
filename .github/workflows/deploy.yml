@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.13'
           cache: 'pip'
-          pip-install: 'jupyter-server jupyter-book'
+          #pip-install: 'requirements.txt'
       - name: Run jupyter-book
         run: jupyter-book build --execute --html
       - name: Upload artifact
