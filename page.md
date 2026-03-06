@@ -15,7 +15,7 @@ kernelspec:
 
 +++
 
-The same one.
+How to keep the cache lean?
 
 ```{code-cell} ipython3
 :label: markdown-myst
